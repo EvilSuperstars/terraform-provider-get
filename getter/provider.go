@@ -8,8 +8,12 @@ import (
 // Provider returns a terraform.ResourceProvider.
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
-		Schema:         map[string]*schema.Schema{},
-		ResourcesMap:   map[string]*schema.Resource{},
-		DataSourcesMap: map[string]*schema.Resource{},
+		Schema: map[string]*schema.Schema{},
+
+		ResourcesMap: map[string]*schema.Resource{},
+
+		DataSourcesMap: map[string]*schema.Resource{
+			"go_getter_file": dataSourceFile(),
+		},
 	}
 }

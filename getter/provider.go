@@ -13,7 +13,7 @@ func Provider() terraform.ResourceProvider {
 		ResourcesMap: map[string]*schema.Resource{},
 
 		DataSourcesMap: map[string]*schema.Resource{
-			"go_getter_file": dataSourceFile(),
+			"gogetter_file": dataSourceFile(),
 		},
 	}
 }

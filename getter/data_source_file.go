@@ -20,7 +20,7 @@ func dataSourceFile() *schema.Resource {
 				Required: true,
 			},
 
-			"body": {
+			"content": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -29,7 +29,7 @@ func dataSourceFile() *schema.Resource {
 }
 
 func dataSourceRead(d *schema.ResourceData, meta interface{}) error {
-	url := d.Get("url").(string)
+	src := d.Get("url").(string)
 
 	tmpDir, err := ioutil.TempDir("", "gg")
 	if err != nil {
@@ -37,8 +37,8 @@ func dataSourceRead(d *schema.ResourceData, meta interface{}) error {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	dst := path.Join(tmpDir, "temp.dat")
-	if err := gg.GetFile(dst, url); err != nil {
+	dst := path.Join(tmpDir, "gg.dat")
+	if err := gg.GetFile(dst, src); err != nil {
 		return err
 	}
 
@@ -48,7 +48,7 @@ func dataSourceRead(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	d.SetId(time.Now().UTC().String())
-	d.Set("body", string(bytes))
+	d.Set("content", string(bytes))
 
 	return nil
 }

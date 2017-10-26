@@ -10,21 +10,21 @@ Requirements
 Building The Provider
 ---------------------
 
-Clone repository to: `$GOPATH/src/github.com/EvilSuperstars/terraform-provider-go-getter`
+Clone repository to: `$GOPATH/src/github.com/EvilSuperstars/terraform-provider-gogetter`
 
 ```sh
 $ mkdir -p $GOPATH/src/github.com/EvilSuperstars; cd $GOPATH/src/github.com/EvilSuperstars
-$ git clone git@github.com:EvilSuperstars/terraform-provider-go-getter
+$ git clone git@github.com:EvilSuperstars/terraform-provider-gogetter
 ```
 
 Enter the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-go-getter
+$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-gogetter
 $ make build
 ```
 
 Using The Provider
 ------------------
 
-See the [documentation](using.md) to get started using the [go-getter](https://github.com/hashicorp/go-getter) provider.
+See the [documentation](using.md) to get started using the [go-getter](https://github.com/EvilSuperstars/terraform-provider-gogetter) provider.

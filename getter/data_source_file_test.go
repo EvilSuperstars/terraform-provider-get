@@ -11,9 +11,9 @@ import (
 )
 
 const testDataSourceConfig_basic = `
-provider "gogetter" {}
+provider "getter" {}
 
-data "gogetter_file" "foo" {
+data "getter_file" "foo" {
   url = "%s"
 }
 `
@@ -39,7 +39,7 @@ func TestDataSource_basic(t *testing.T) {
 			{
 				Config: fmt.Sprintf(testDataSourceConfig_basic, filename),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("data.gogetter_file.foo", "content", content),
+					resource.TestCheckResourceAttr("data.getter_file.foo", "content", content),
 				),
 			},
 		},

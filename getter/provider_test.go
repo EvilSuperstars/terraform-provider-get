@@ -8,7 +8,7 @@ import (
 )
 
 var testProviders = map[string]terraform.ResourceProvider{
-	"gogetter": Provider(),
+	"getter": Provider(),
 }
 
 func TestProvider(t *testing.T) {

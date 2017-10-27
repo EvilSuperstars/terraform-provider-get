@@ -1,4 +1,4 @@
-package getter
+package get
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"
@@ -13,7 +13,7 @@ func Provider() terraform.ResourceProvider {
 		ResourcesMap: map[string]*schema.Resource{},
 
 		DataSourcesMap: map[string]*schema.Resource{
-			"getter_file": dataSourceFile(),
+			"get_file": dataSourceFile(),
 		},
 	}
 }

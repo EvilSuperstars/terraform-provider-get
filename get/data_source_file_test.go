@@ -1,4 +1,4 @@
-package getter
+package get
 
 import (
 	"fmt"
@@ -11,9 +11,9 @@ import (
 )
 
 const testDataSourceConfig_basic = `
-provider "getter" {}
+provider "get" {}
 
-data "getter_file" "foo" {
+data "get_file" "foo" {
   url = "%s"
 }
 `
@@ -39,7 +39,7 @@ func TestDataSource_basic(t *testing.T) {
 			{
 				Config: fmt.Sprintf(testDataSourceConfig_basic, filename),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("data.getter_file.foo", "content", content),
+					resource.TestCheckResourceAttr("data.get_file.foo", "content", content),
 				),
 			},
 		},

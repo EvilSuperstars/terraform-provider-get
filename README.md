@@ -24,6 +24,13 @@ $ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-get
 $ make build
 ```
 
+Run acceptance tests
+
+```sh
+$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-get
+$ make testacc TEST=./get/ TESTARGS='-run=TestDataSource_'
+```
+
 Using The Provider
 ------------------
 

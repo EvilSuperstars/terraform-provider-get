@@ -1,4 +1,4 @@
-package getter
+package get
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 )
 
 var testProviders = map[string]terraform.ResourceProvider{
-	"getter": Provider(),
+	"get": Provider(),
 }
 
 func TestProvider(t *testing.T) {

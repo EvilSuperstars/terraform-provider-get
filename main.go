@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ewbankkit/terraform-provider-get/get"
+	"github.com/EvilSuperstars/terraform-provider-get/get"
 	"github.com/hashicorp/terraform/plugin"
 )
 

@@ -17,7 +17,7 @@ data "get_file" "foo" {
 
 ## Data Sources
 
-### `getter_file`
+### `get_file`
 
 #### Argument Reference
 

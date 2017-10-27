@@ -1,16 +1,17 @@
-# `getter` Provider
+# `go-getter` Provider
 
-The Terraform [getter](https://github.com/EvilSuperstars/terraform-provider-getter) provider is used to interact with files that can be downloaded from a string URL using a variety of protocols.
+The Terraform [go-getter](https://github.com/EvilSuperstars/terraform-provider-get) provider is used to interact with files that can be downloaded from a string URL using a variety of protocols.
+The provider uses the [go-getter library](https://github.com/hashicorp/go-getter).
 
 This provider requires no configuration.
 
 ### Example Usage
 
 ```hcl
-provider "getter" {}
+provider "get" {}
 
-data "getter_file" "foo" {
-  url = "data.dat"
+data "get_file" "foo" {
+  url = "foo.txt"
 }
 ```
 

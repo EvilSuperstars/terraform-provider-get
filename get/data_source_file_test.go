@@ -33,7 +33,7 @@ func TestDataSource_basic(t *testing.T) {
 	}
 	defer os.Remove(filename)
 
-	resource.UnitTest(t, resource.TestCase{
+	resource.ParallelTest(t, resource.TestCase{
 		Providers: testProviders,
 		Steps: []resource.TestStep{
 			{

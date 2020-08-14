@@ -2,10 +2,11 @@ package get
 
 import (
 	"context"
+	"hash/crc32"
 	"io/ioutil"
 	"os"
 	"path"
-	"time"
+	"strconv"
 
 	gg "github.com/hashicorp/go-getter"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -49,7 +50,9 @@ func dataSourceReadContext(ctx context.Context, d *schema.ResourceData, meta int
 		return diag.Errorf("error reading file %s: %s", dst, err)
 	}
 
-	d.SetId(time.Now().UTC().String())
+	hash := crc32.ChecksumIEEE(bytes)
+	d.SetId(strconv.FormatUint(uint64(hash), 16))
+
 	d.Set("content", string(bytes))
 
 	return nil

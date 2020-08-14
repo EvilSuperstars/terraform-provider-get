@@ -10,15 +10,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 )
 
-const testDataSourceConfig_basic = `
-provider "get" {}
-
-data "get_file" "foo" {
-  url = "%s"
-}
-`
-
 func TestDataSource_basic(t *testing.T) {
+	dataSourceName := "data.get_file.test"
+
 	wd, err := os.Getwd()
 	if err != nil {
 		t.Fatal(err)
@@ -37,11 +31,21 @@ func TestDataSource_basic(t *testing.T) {
 		Providers: testProviders,
 		Steps: []resource.TestStep{
 			{
-				Config: fmt.Sprintf(testDataSourceConfig_basic, filename),
+				Config: testDataSourceConfig(filename),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("data.get_file.foo", "content", content),
+					resource.TestCheckResourceAttr(dataSourceName, "content", content),
 				),
 			},
 		},
 	})
+}
+
+func testDataSourceConfig(n string) string {
+	return fmt.Sprintf(`
+provider "get" {}
+
+data "get_file" "test" {
+  url = %[1]q
+}
+`, n)
 }
